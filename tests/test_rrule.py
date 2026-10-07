@@ -2497,8 +2497,14 @@ class RRuleTest(unittest.TestCase):
             return rrule(DAILY, count=3, dtstart=datetime(1997, 9, 2, 9, 0))
 
         expected = list(make())
-        for item in (slice(-2, None), slice(None, -1), slice(-5, None),
-                     slice(-2, -1), slice(None, -5), slice(-3, 2, 2)):
+        for item in (
+            slice(-2, None),
+            slice(None, -1),
+            slice(-5, None),
+            slice(-2, -1),
+            slice(None, -5),
+            slice(-3, 2, 2),
+        ):
             self.assertEqual(make()[item], expected[item], item)
 
             rr = make()

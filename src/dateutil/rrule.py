@@ -150,9 +150,11 @@ class rrulebase(object):
         if self._cache_complete:
             return self._cache[item]
         elif isinstance(item, slice):
-            if ((item.step and item.step < 0) or
-                    (item.start is not None and item.start < 0) or
-                    (item.stop is not None and item.stop < 0)):
+            if (
+                (item.step and item.step < 0)
+                or (item.start is not None and item.start < 0)
+                or (item.stop is not None and item.stop < 0)
+            ):
                 # islice() rejects negative indices, so build the full list
                 return list(iter(self))[item]
             else:
